@@ -10,9 +10,11 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		<bean lazy-init="false" class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
-		<property value="com.mysql.jdbc.Driver" name="driverClassName"/>
-		<property value="jdbc:mysql://localhost:3306/example" name="url"/>
-		<property value="root" name="username"/>
-		<property value="1234" name="password"/>
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/sys?characterEncoding=UTF-8&amp;serverTimezone=UTC&amp;verifyServerCertificate=false&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"/>
+		<property name="username" value="root"/>
+		<property name="password" value="root"/>
+		
+		<!-- <property name="password" value="013174zz"/> -->
 	</bean>
 </beans>

@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -18,16 +19,24 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 	특히 WAS의 실행이 매번 상당히 많은 시간이 드는 환경이면 필수적이라고 할 수 있습니다.
 */ 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/*.xml" })
+//file:src/main/webapp/WEB-INF/spring/*.xml", "file:///파일 디렉토리 절대경로/context.xml"
+@ContextConfiguration(locations = { "file:test-context.xml", "context1.xml", "file:ctx/context2.xml" })	//file:src/main/webapp/WEB-INF/spring/*.xml"
 public class DataSourceTest {
 
 	@Inject
 	private DataSource ds;
 
+	@Inject
+	private TestConfig test1;
+	@Autowired
+	private TestConfig test2;
+
 	@Test
 	public void testConnection() throws Exception {
 		try (Connection con = ds.getConnection()) {
 			System.out.println(con);
+			System.out.println(test1.getName());
+			System.out.println(test2.getName());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
