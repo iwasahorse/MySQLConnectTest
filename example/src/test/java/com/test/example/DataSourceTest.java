@@ -19,8 +19,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 	특히 WAS의 실행이 매번 상당히 많은 시간이 드는 환경이면 필수적이라고 할 수 있습니다.
 */ 
 @RunWith(SpringJUnit4ClassRunner.class)
-//file:src/main/webapp/WEB-INF/spring/*.xml", "file:///파일 디렉토리 절대경로/context.xml"
-@ContextConfiguration(locations = { "file:test-context.xml", "context1.xml", "file:ctx/context2.xml" })	//file:src/main/webapp/WEB-INF/spring/*.xml"
+
+//file:src/main/webapp/WEB-INF/spring/*.xml", "file:/파일 디렉토리 절대경로/context.xml", "file:///파일 디렉토리 절대경로/context_copy.xml"
+@ContextConfiguration(locations = { "file:test-context.xml", "context1.xml", "ctx/context2.xml" })	//file:src/main/webapp/WEB-INF/spring/*.xml"
 public class DataSourceTest {
 
 	@Inject
