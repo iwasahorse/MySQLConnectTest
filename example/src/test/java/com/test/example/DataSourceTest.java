@@ -21,7 +21,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 
 //file:src/main/webapp/WEB-INF/spring/*.xml", "file:/파일 디렉토리 절대경로/context.xml", "file:///파일 디렉토리 절대경로/context_copy.xml"
-@ContextConfiguration(locations = { "file:test-context.xml", "context1.xml", "ctx/context2.xml" })	//file:src/main/webapp/WEB-INF/spring/*.xml"
+@ContextConfiguration(locations = { "file:test-context.xml", "context1.xml", "file:ctx/context2.xml" })	
 public class DataSourceTest {
 
 	@Inject
